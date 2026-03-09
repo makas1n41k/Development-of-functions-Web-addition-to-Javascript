@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PulseVote — Вхід</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Oswald:wght@500;700&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  </head>
+<body>
+  <nav class="navbar navbar-light bg-white bg-opacity-75 sticky-top">
+    <div class="container">
+      <a class="navbar-brand brand-title" href="index.html">PulseVote</a>
+      <button class="nav-toggle" type="button" aria-label="Відкрити меню" aria-controls="site-menu" aria-expanded="false" data-nav-toggle>
+        <span class="nav-toggle-box" aria-hidden="true">
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+        </span>
+      </button>
+      <div class="site-nav" id="site-menu" data-nav-menu>
+        <ul class="navbar-nav ms-auto site-nav-list">
+          <li class="nav-item"><a class="nav-link" href="index.html">Опитування</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">Про додаток</a></li>
+          <li class="nav-item"><a class="nav-link" href="profile.html">Профіль</a></li>
+          <li class="nav-item"><a class="nav-link active" href="login.html">Вхід</a></li>
+          <li class="nav-item"><a class="nav-link" href="register.html">Реєстрація</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container py-4">
+    <div class="row justify-content-center">
+      <div class="col-md-6 col-lg-5">
+        <div class="card p-4 p-md-5">
+          <p class="section-title mb-2">Вхід</p>
+          <h1 class="brand-title mb-4">Увійти до PulseVote</h1>
+          <form>
+            <div class="mb-3">
+              <label class="form-label">Email</label>
+              <input type="email" class="form-control" name="email" placeholder="name@example.com" />
+              </div>
+            <div class="mb-3">
+              <label class="form-label">Пароль</label>
+              <input type="password" class="form-control" name="password" placeholder="••••••••" />
+              </div>
+            <p class="text-muted small mb-3">Форма входу представлена як статичний макет.</p>
+            <button class="btn btn-primary w-100" type="button">Увійти</button>
+            <p class="text-muted mt-3 mb-0">Немає акаунта? <a href="register.html">Зареєструватись</a></p>
+            </form>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer py-4 mt-5 bg-white bg-opacity-75">
+    <div class="container d-flex flex-wrap justify-content-between align-items-center gap-2">
+      <span>© 2026 PulseVote. Навчальний проєкт.</span>
+      <span>Контакти: shewchenko.maxym@lll.kpi.ua</span>
+    </div>
+  </footer>
+  <script src="js/menu.js"></script>
+</body>
+</html>

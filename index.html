@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PulseVote — Опитування</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Oswald:wght@500;700&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  </head>
+<body>
+  <nav class="navbar navbar-light bg-white bg-opacity-75 sticky-top">
+    <div class="container">
+      <a class="navbar-brand brand-title" href="index.html">PulseVote</a>
+      <button class="nav-toggle" type="button" aria-label="Відкрити меню" aria-controls="site-menu" aria-expanded="false" data-nav-toggle>
+        <span class="nav-toggle-box" aria-hidden="true">
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+        </span>
+      </button>
+      <div class="site-nav" id="site-menu" data-nav-menu>
+        <ul class="navbar-nav ms-auto site-nav-list">
+          <li class="nav-item"><a class="nav-link active" href="index.html">Опитування</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">Про додаток</a></li>
+          <li class="nav-item"><a class="nav-link" href="profile.html">Профіль</a></li>
+          <li class="nav-item"><a class="nav-link" href="login.html">Вхід</a></li>
+          <li class="nav-item"><a class="nav-link" href="register.html">Реєстрація</a></li>
+          </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container py-4">
+    <section class="hero p-4 p-md-5 mb-4">
+      <div class="row g-4 align-items-center">
+        <div class="col-lg-7">
+          <p class="section-title mb-2">Робоча сторінка</p>
+          <h1 class="brand-title display-5">Створи опитування за 60 секунд</h1>
+          <p class="lead">PulseVote — сервіс для швидких опитувань у навчальних групах, командах та спільнотах. Збирай відповіді, аналізуй тенденції, ділись результатами.</p>
+          <div class="d-flex flex-wrap gap-2">
+            <span class="badge rounded-pill badge-soft">Опитування</span>
+            <span class="badge rounded-pill badge-soft">Аналітика</span>
+            <span class="badge rounded-pill badge-soft">Командна робота</span>
+            </div>
+        </div>
+
+        <div class="col-lg-5">
+          <div class="card p-4">
+            <div class="d-flex justify-content-between align-items-start gap-3 mb-3">
+              <div>
+                <p class="section-title mb-1">Швидке голосування</p>
+                <h5 class="brand-title mb-1" data-poll-card-title>Немає вибраного опитування</h5>
+                <p class="text-muted small mb-0" data-poll-card-meta>Створи нове опитування в конструкторі.</p>
+              </div>
+              <span class="badge rounded-pill badge-soft" data-poll-card-responses>0 голосів</span>
+            </div>
+            <p class="mb-3" data-poll-card-question>Після створення опитування тут з'явиться блок для голосування.</p>
+            <div class="alert mb-3" hidden data-poll-vote-state></div>
+            <div class="d-grid gap-2 mb-3" data-poll-card-options></div>
+            <button class="btn btn-primary w-100 mb-3" type="button" data-poll-confirm disabled>Підтвердити голос</button>
+            <div class="d-grid gap-2 mb-3">
+              <button class="btn btn-outline-secondary w-100" type="button" data-poll-reset-responses disabled>Скинути відповіді</button>
+              <button class="btn btn-outline-danger w-100" type="button" data-poll-delete disabled>Видалити опитування</button>
+            </div>
+            <div class="alert alert-light border mb-3" data-poll-card-empty>Обери опитування зі списку праворуч або створи власне.</div>
+            <button class="btn btn-primary w-100" type="button" data-poll-card-create>Перейти до конструктора</button>
+            </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="row g-4">
+      <div class="col-lg-8">
+        <div class="card p-4 h-100">
+          <p class="section-title mb-2">Конструктор</p>
+          <h3 class="brand-title">Створення нового опитування</h3>
+          <form data-poll-form>
+            <div class="mb-3">
+              <label class="form-label">Назва опитування</label>
+              <input class="form-control" name="title" placeholder="Наприклад, Харчові вподобання групи" />
+              </div>
+
+            <div class="mb-3">
+              <label class="form-label">Опис</label>
+              <textarea class="form-control" name="description" rows="3" placeholder="Коротко поясніть мету опитування"></textarea>
+              </div>
+
+            <div class="mb-3">
+              <label class="form-label">Питання</label>
+              <input class="form-control" name="question" placeholder="Скільки кави ви п'єте за день?" />
+              </div>
+
+            <div class="row g-3 mb-3">
+              <div class="col-md-6"><input class="form-control" name="option1" placeholder="Варіант 1" /></div>
+              <div class="col-md-6"><input class="form-control" name="option2" placeholder="Варіант 2" /></div>
+              <div class="col-md-6"><input class="form-control" name="option3" placeholder="Варіант 3" /></div>
+              <div class="col-md-6"><input class="form-control" name="option4" placeholder="Варіант 4" /></div>
+              </div>
+
+            <div class="d-flex flex-wrap gap-2">
+              <button class="btn btn-primary" type="submit">Зберегти опитування</button>
+              <button class="btn btn-outline-secondary" type="reset">Скасувати</button>
+              </div>
+            <div class="alert mt-3 mb-0" hidden data-poll-message></div>
+          </form>
+        </div>
+      </div>
+
+      <div class="col-lg-4">
+        <div class="card p-4 mb-4">
+          <p class="section-title mb-2">Активні опитування</p>
+          <ul class="list-group list-group-flush" data-poll-list>
+            </ul>
+        </div>
+
+        <div class="card p-4">
+          <p class="section-title mb-2">Аналітика</p>
+          <div class="mb-3">
+            <small class="text-muted">Усього опитувань</small>
+            <h3 class="brand-title" data-analytics-total-polls>0</h3>
+          </div>
+          <div class="mb-3">
+            <small class="text-muted">Загальна кількість відповідей</small>
+            <h5 class="brand-title" data-analytics-total-responses>0</h5>
+          </div>
+          <div class="mb-3">
+            <small class="text-muted">Середня активність</small>
+            <h5 class="brand-title" data-analytics-average>0 голосів</h5>
+          </div>
+          <div class="poll-option">
+            <small class="text-muted d-block mb-1">Найпопулярніше опитування</small>
+            <strong data-analytics-top>Ще немає даних</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer py-4 mt-5 bg-white bg-opacity-75">
+    <div class="container d-flex flex-wrap justify-content-between align-items-center gap-2">
+      <span>© 2026 PulseVote. Навчальний проєкт.</span>
+      <span>Контакти: shewchenko.maxym@lll.kpi.ua</span>
+      </div>
+  </footer>
+  <script src="js/menu.js"></script>
+  <script src="js/core/storage.js"></script>
+  <script src="js/views/helpers.js"></script>
+  <script src="js/models/poll-model.js"></script>
+  <script src="js/views/poll-view.js"></script>
+  <script src="js/controllers/poll-controller.js"></script>
+</body>
+</html>
