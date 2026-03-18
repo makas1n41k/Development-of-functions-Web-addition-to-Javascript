@@ -2,10 +2,15 @@
   const App = (window.PulseVote = window.PulseVote || {});
   const pollModel = App.models.poll;
   const pollView = App.views.poll;
+  const userModel = App.models.user;
 
   let selectedPollId = null;
   let selectedOptionId = null;
-  const participantKey = "visitor";
+
+  function getParticipantKey() {
+    const currentUser = userModel && userModel.getCurrentUser ? userModel.getCurrentUser() : null;
+    return currentUser && currentUser.email ? currentUser.email : "visitor";
+  }
 
   function render() {
     const previousSelectedPollId = selectedPollId;
@@ -13,8 +18,8 @@
     const currentPoll = selectedPollId ? pollModel.getById(selectedPollId) : polls[0] || null;
     const voteState = currentPoll
       ? {
-          hasVoted: pollModel.hasParticipantVoted(currentPoll.id, participantKey),
-          optionId: pollModel.getParticipantVote(currentPoll.id, participantKey),
+          hasVoted: pollModel.hasParticipantVoted(currentPoll.id, getParticipantKey()),
+          optionId: pollModel.getParticipantVote(currentPoll.id, getParticipantKey()),
         }
       : null;
 
@@ -45,7 +50,7 @@
 
         const poll = pollModel.create({
           ...formData,
-          author: "PulseVote Team",
+          author: (userModel && userModel.getCurrentUser && userModel.getCurrentUser() && userModel.getCurrentUser().name) || "PulseVote Team",
         });
 
         selectedPollId = poll.id;
@@ -76,7 +81,7 @@
           throw new Error("Спочатку обери варіант відповіді.");
         }
 
-        pollModel.vote(selectedPollId, selectedOptionId, participantKey);
+        pollModel.vote(selectedPollId, selectedOptionId, getParticipantKey());
         pollView.renderMessage("success", "Дякую, голос зараховано.");
         selectedOptionId = null;
         render();

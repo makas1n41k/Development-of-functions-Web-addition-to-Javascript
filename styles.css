@@ -15,8 +15,6 @@ body {
 *,
 *::before,
 *::after {
-  transition: none !important;
-  animation: none !important;
   scroll-behavior: auto !important;
 }
 
@@ -34,7 +32,8 @@ a:focus {
 .nav-link:hover,
 .nav-link:focus {
   color: #000;
-  background-color: transparent;
+  background-color: rgba(13, 110, 253, 0.08);
+  border-radius: 0.6rem;
 }
 
 .nav-link.active,
@@ -104,7 +103,7 @@ a:focus {
 
 .nav-toggle:hover,
 .nav-toggle:focus-visible {
-  background: transparent;
+  background: rgba(13, 110, 253, 0.08);
 }
 
 .site-nav.is-open {
@@ -121,6 +120,21 @@ a:focus {
 .btn:focus,
 .btn:active {
   box-shadow: none !important;
+}
+
+a,
+button,
+.btn,
+.nav-link,
+.card,
+.poll-option,
+.poll-list-item,
+.poll-vote-button,
+.form-control,
+.form-select,
+.nav-toggle {
+  transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease,
+    box-shadow 0.2s ease, transform 0.2s ease;
 }
 
 .btn-check:active + .btn,
@@ -158,8 +172,9 @@ a,
 
 .btn-primary:hover,
 .btn-primary:focus {
-  background-color: var(--bs-primary);
-  border-color: var(--bs-primary);
+  background-color: #0b5ed7;
+  border-color: #0b5ed7;
+  transform: translateY(-1px);
 }
 
 .btn-primary:active,
@@ -173,8 +188,9 @@ a,
 .btn-outline-primary:hover,
 .btn-outline-primary:focus {
   color: #0d6efd;
-  background-color: transparent;
+  background-color: rgba(13, 110, 253, 0.08);
   border-color: #0d6efd;
+  transform: translateY(-1px);
 }
 
 .btn-outline-primary:active,
@@ -188,8 +204,9 @@ a,
 .btn-outline-secondary:hover,
 .btn-outline-secondary:focus {
   color: #6c757d;
-  background-color: transparent;
+  background-color: rgba(108, 117, 125, 0.08);
   border-color: #6c757d;
+  transform: translateY(-1px);
 }
 
 .btn-outline-secondary:active,
@@ -203,8 +220,9 @@ a,
 .btn-outline-danger:hover,
 .btn-outline-danger:focus {
   color: #dc3545;
-  background-color: transparent;
+  background-color: rgba(220, 53, 69, 0.08);
   border-color: #dc3545;
+  transform: translateY(-1px);
 }
 
 .btn-outline-danger:active,
@@ -241,6 +259,10 @@ a,
   box-shadow: 0 12px 30px rgba(30, 26, 20, 0.08);
 }
 
+.card:hover {
+  box-shadow: 0 16px 36px rgba(30, 26, 20, 0.12);
+}
+
 .section-title {
   font-family: "Oswald", system-ui, sans-serif;
   text-transform: uppercase;
@@ -263,6 +285,11 @@ a,
   border: 1px solid rgba(13, 110, 253, 0.15);
   border-radius: 0.75rem;
   padding: 0.75rem 1rem;
+}
+
+.poll-option:hover {
+  border-color: rgba(13, 110, 253, 0.35);
+  background: rgba(13, 110, 253, 0.04);
 }
 
 .poll-list-item {
@@ -308,12 +335,18 @@ a,
 }
 
 .poll-list-item:hover {
-  background: transparent;
-  box-shadow: none;
+  background: rgba(13, 110, 253, 0.05);
+  box-shadow: inset 0 0 0 1px rgba(13, 110, 253, 0.18);
 }
 
 .poll-vote-button {
   border-radius: 0.75rem;
+}
+
+.poll-vote-button:hover:not(:disabled),
+.poll-vote-button:focus-visible:not(:disabled) {
+  background: rgba(13, 110, 253, 0.08);
+  border-color: rgba(13, 110, 253, 0.35);
 }
 
 .poll-vote-button:disabled {
@@ -350,8 +383,23 @@ a,
   border-radius: 0.75rem;
 }
 
+.form-control:hover,
+.form-select:hover {
+  border-color: rgba(13, 110, 253, 0.35);
+}
+
 .btn-primary {
   border-radius: 0.75rem;
+}
+
+.auth-hint {
+  border: 1px solid rgba(13, 110, 253, 0.12);
+  border-radius: 0.75rem;
+  background: rgba(13, 110, 253, 0.05);
+}
+
+.profile-summary-meta {
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 @media (max-width: 767px) {

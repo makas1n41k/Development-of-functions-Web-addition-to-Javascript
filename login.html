@@ -39,7 +39,7 @@
         <div class="card p-4 p-md-5">
           <p class="section-title mb-2">Вхід</p>
           <h1 class="brand-title mb-4">Увійти до PulseVote</h1>
-          <form>
+          <form data-login-form>
             <div class="mb-3">
               <label class="form-label">Email</label>
               <input type="email" class="form-control" name="email" placeholder="name@example.com" />
@@ -48,10 +48,12 @@
               <label class="form-label">Пароль</label>
               <input type="password" class="form-control" name="password" placeholder="••••••••" />
               </div>
-            <p class="text-muted small mb-3">Форма входу представлена як статичний макет.</p>
-            <button class="btn btn-primary w-100" type="button">Увійти</button>
+            <p class="text-muted small mb-3">Вхід працює через localStorage. Можна увійти в демо-акаунт або в профіль, створений через реєстрацію.</p>
+            <button class="btn btn-primary w-100" type="submit">Увійти</button>
             <p class="text-muted mt-3 mb-0">Немає акаунта? <a href="register.html">Зареєструватись</a></p>
-            </form>
+            <div class="alert mt-3 mb-0" hidden data-login-message></div>
+          </form>
+          <div class="auth-hint p-3 mt-3" data-demo-hint></div>
         </div>
       </div>
     </div>
@@ -64,5 +66,10 @@
     </div>
   </footer>
   <script src="js/menu.js"></script>
+  <script src="js/core/storage.js"></script>
+  <script src="js/views/helpers.js"></script>
+  <script src="js/models/user-model.js"></script>
+  <script src="js/views/auth-view.js"></script>
+  <script src="js/controllers/login-controller.js"></script>
 </body>
 </html>
